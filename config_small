@@ -1839,9 +1839,9 @@ CONFIG_NETJSON_MONITORING_IWINFO=y
 # CONFIG_PACKAGE_qbee-agent is not set
 # CONFIG_PACKAGE_rsyslog is not set
 # CONFIG_PACKAGE_schroot is not set
-CONFIG_PACKAGE_docker=m
-CONFIG_PACKAGE_docker-compose=m
-CONFIG_PACKAGE_dockerd=m
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
+CONFIG_PACKAGE_dockerd=y
 #
 # Configuration
 #
@@ -2349,6 +2349,7 @@ CONFIG_PACKAGE_kmod-fs-configfs=y
 # CONFIG_PACKAGE_kmod-fs-xfs is not set
 # CONFIG_PACKAGE_kmod-fuse is not set
 # CONFIG_PACKAGE_kmod-pstore is not set
+CONFIG_PACKAGE_kmod-overlay=y
 # end of Filesystems
 
 #
@@ -2744,6 +2745,7 @@ CONFIG_PACKAGE_kmod-rpmsg-wwan-ctrl=y
 # CONFIG_PACKAGE_kmod-switch-rtl8367 is not set
 # CONFIG_PACKAGE_kmod-switch-rtl8367b is not set
 CONFIG_PACKAGE_kmod-wwan=y
+CONFIG_PACKAGE_kmod-bridge=y
 # end of Network Devices
 
 #
@@ -2832,7 +2834,7 @@ CONFIG_PACKAGE_kmod-tcp-bbr=y
 # CONFIG_PACKAGE_kmod-trelay is not set
 CONFIG_PACKAGE_kmod-tun=y
 # CONFIG_PACKAGE_kmod-unix-diag is not set
-# CONFIG_PACKAGE_kmod-veth is not set
+CONFIG_PACKAGE_kmod-veth=y
 # CONFIG_PACKAGE_kmod-vrf is not set
 # CONFIG_PACKAGE_kmod-vxlan is not set
 # CONFIG_PACKAGE_kmod-wireguard is not set
@@ -3087,8 +3089,6 @@ CONFIG_PACKAGE_kmod-usb3=y
 #
 # Wireless Drivers
 #
-CONFIG_PACKAGE_kmod-aic8800s=y
-CONFIG_PACKAGE_kmod-aic8800u=y
 # CONFIG_PACKAGE_kmod-ar5523 is not set
 CONFIG_PACKAGE_kmod-ath=y
 CONFIG_ATH_USER_REGD=y
@@ -3126,7 +3126,7 @@ CONFIG_PACKAGE_MAC80211_MESH=y
 # CONFIG_PACKAGE_kmod-rt2800-usb is not set
 # CONFIG_PACKAGE_kmod-rt2x00-lib is not set
 # CONFIG_PACKAGE_kmod-rt73-usb is not set
-CONFIG_PACKAGE_kmod-rtl8188eu=y
+# CONFIG_PACKAGE_kmod-rtl8188eu is not set
 # CONFIG_PACKAGE_kmod-rtl8189es is not set
 # CONFIG_PACKAGE_kmod-rtl8192cu is not set
 # CONFIG_PACKAGE_kmod-rtl8192du is not set
@@ -3503,7 +3503,7 @@ CONFIG_NODEJS_NPM_CACHE_DIR=""
 # CONFIG_PACKAGE_micropython-mbedtls is not set
 # CONFIG_PACKAGE_micropython-nossl is not set
 # CONFIG_PACKAGE_pipx is not set
-# CONFIG_PACKAGE_python3 is not set
+CONFIG_PACKAGE_python3=y
 # CONFIG_PACKAGE_python3-RPi.GPIO is not set
 # CONFIG_PACKAGE_python3-aio-mqtt-mod is not set
 # CONFIG_PACKAGE_python3-aiohttp is not set
@@ -3567,7 +3567,7 @@ CONFIG_NODEJS_NPM_CACHE_DIR=""
 # CONFIG_PACKAGE_python3-django-cors-headers is not set
 # CONFIG_PACKAGE_python3-django-restframework is not set
 # CONFIG_PACKAGE_python3-dns is not set
-# CONFIG_PACKAGE_python3-docker is not set
+CONFIG_PACKAGE_python3-docker=y
 # CONFIG_PACKAGE_python3-dockerpty is not set
 # CONFIG_PACKAGE_python3-docopt is not set
 # CONFIG_PACKAGE_python3-docutils is not set
@@ -3656,7 +3656,7 @@ CONFIG_NODEJS_NPM_CACHE_DIR=""
 # CONFIG_PACKAGE_python3-parsley is not set
 # CONFIG_PACKAGE_python3-passlib is not set
 # CONFIG_PACKAGE_python3-pillow is not set
-# CONFIG_PACKAGE_python3-pip is not set
+CONFIG_PACKAGE_python3-pip=y
 # CONFIG_PACKAGE_python3-pkg-resources is not set
 # CONFIG_PACKAGE_python3-platformdirs is not set
 # CONFIG_PACKAGE_python3-pluggy is not set
@@ -5013,7 +5013,7 @@ CONFIG_PACKAGE_zlib=y
 # 1. Collections
 #
 CONFIG_PACKAGE_luci=y
-# CONFIG_PACKAGE_luci-lib-docker is not set
+CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_luci-light=y
 # CONFIG_PACKAGE_luci-nginx is not set
 # CONFIG_PACKAGE_luci-ssl is not set
@@ -5128,8 +5128,8 @@ CONFIG_PACKAGE_luci-app-cpu-perf=y
 # CONFIG_PACKAGE_luci-app-ddns is not set
 # CONFIG_PACKAGE_luci-app-ddns-go is not set
 # CONFIG_PACKAGE_luci-app-diskman is not set
-# CONFIG_PACKAGE_luci-app-docker is not set
-# CONFIG_PACKAGE_luci-app-dockerman is not set
+CONFIG_PACKAGE_luci-app-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=y
 # CONFIG_PACKAGE_luci-app-dufs is not set
 # CONFIG_PACKAGE_luci-app-dump1090 is not set
 # CONFIG_PACKAGE_luci-app-email is not set
@@ -5194,7 +5194,7 @@ CONFIG_PACKAGE_luci-app-firewall=y
 # CONFIG_PACKAGE_luci-app-p910nd is not set
 CONFIG_PACKAGE_luci-app-package-manager=y
 # CONFIG_PACKAGE_luci-app-pagekitec is not set
-CONFIG_PACKAGE_luci-app-passwall=y
+# CONFIG_PACKAGE_luci-app-passwall is not set
 
 #
 # Configuration
@@ -5210,7 +5210,7 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_tuic_client is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geoview is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
 # end of Configuration
@@ -5261,12 +5261,13 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 # CONFIG_PACKAGE_luci-app-udpxy is not set
 # CONFIG_PACKAGE_luci-app-uhttpd is not set
 # CONFIG_DEFAULT_luci-app-turboacc is not set
+CONFIG_PACKAGE_luci-app-turboacc=y
 # CONFIG_PACKAGE_luci-app-unblockneteasemusic is not set
 # CONFIG_PACKAGE_luci-app-unbound is not set
 # CONFIG_PACKAGE_luci-app-upnp is not set
 # CONFIG_PACKAGE_luci-app-usb-printer is not set
 # CONFIG_PACKAGE_luci-app-usteer is not set
-CONFIG_PACKAGE_luci-app-v2raya=y
+# CONFIG_PACKAGE_luci-app-v2raya is not set
 # CONFIG_PACKAGE_luci-app-vlmcsd is not set
 # CONFIG_PACKAGE_luci-app-vnstat2 is not set
 # CONFIG_PACKAGE_luci-app-vsftpd is not set
@@ -5278,7 +5279,6 @@ CONFIG_PACKAGE_luci-app-v2raya=y
 # CONFIG_PACKAGE_luci-app-xinetd is not set
 # CONFIG_PACKAGE_luci-app-xlnetacc is not set
 # CONFIG_PACKAGE_luci-app-zerotier is not set
-CONFIG_PACKAGE_luci-app-turboacc=y
 # end of 3. Applications
 
 #
@@ -5569,7 +5569,7 @@ CONFIG_PACKAGE_luci-i18n-package-manager-zh-tw=y
 # CONFIG_PACKAGE_luci-i18n-v2raya-uk is not set
 # CONFIG_PACKAGE_luci-i18n-v2raya-vi is not set
 # CONFIG_PACKAGE_luci-i18n-v2raya-yua is not set
-CONFIG_PACKAGE_luci-i18n-v2raya-zh-cn=y
+# CONFIG_PACKAGE_luci-i18n-v2raya-zh-cn is not set
 # CONFIG_PACKAGE_luci-i18n-v2raya-zh-tw is not set
 CONFIG_PACKAGE_luci-i18n-turboacc-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-opkg-zh-cn=y
@@ -5605,8 +5605,8 @@ CONFIG_PACKAGE_luci-i18n-opkg-zh-cn=y
 # CONFIG_PACKAGE_spamc is not set
 # CONFIG_PACKAGE_spamc-ssl is not set
 # end of Mail
-CONFIG_PACKAGE_luci-app-dockerman=m
-CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=m
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
 CONFIG_PACKAGE_luci-lib-docker=y
 #
 # Multimedia
@@ -5983,8 +5983,8 @@ CONFIG_PACKAGE_knot-resolver_dnstap=y
 # CONFIG_PACKAGE_unbound-control-setup is not set
 # CONFIG_PACKAGE_unbound-daemon is not set
 # CONFIG_PACKAGE_unbound-host is not set
-CONFIG_PACKAGE_v2ray-geoip=y
-CONFIG_PACKAGE_v2ray-geosite=y
+# CONFIG_PACKAGE_v2ray-geoip is not set
+# CONFIG_PACKAGE_v2ray-geosite is not set
 # CONFIG_PACKAGE_v2ray-geosite-ir is not set
 # CONFIG_PACKAGE_wsdd2 is not set
 # CONFIG_PACKAGE_zonestitcher is not set
@@ -6134,7 +6134,7 @@ CONFIG_PACKAGE_v2ray-geosite=y
 # CONFIG_PACKAGE_genl is not set
 # CONFIG_PACKAGE_igmpproxy is not set
 # CONFIG_PACKAGE_ip-bridge is not set
-CONFIG_PACKAGE_ip-full=y
+# CONFIG_PACKAGE_ip-full is not set
 CONFIG_PACKAGE_ip-tiny=y
 # CONFIG_PACKAGE_lldpd is not set
 # CONFIG_PACKAGE_mrmctl is not set
@@ -6452,8 +6452,8 @@ CONFIG_PACKAGE_cgi-io=y
 # CONFIG_PACKAGE_uhttpd-mod-ubus is not set
 # CONFIG_PACKAGE_uhttpd-mod-ucode is not set
 # CONFIG_PACKAGE_uwsgi is not set
-CONFIG_PACKAGE_v2ray-plugin=y
-CONFIG_PACKAGE_v2raya=y
+# CONFIG_PACKAGE_v2ray-plugin is not set
+# CONFIG_PACKAGE_v2raya is not set
 # CONFIG_PACKAGE_xfrpc is not set
 # CONFIG_PACKAGE_xray-plugin is not set
 # end of Web Servers/Proxies
@@ -6863,7 +6863,7 @@ CONFIG_PACKAGE_uclient-fetch=y
 # CONFIG_PACKAGE_uspotfilter is not set
 # CONFIG_PACKAGE_usteer is not set
 # CONFIG_PACKAGE_ustp is not set
-CONFIG_PACKAGE_v2ray-core=y
+# CONFIG_PACKAGE_v2ray-core is not set
 # CONFIG_PACKAGE_vallumd is not set
 # CONFIG_PACKAGE_vlmcsd is not set
 # CONFIG_PACKAGE_vnstat is not set
@@ -7484,8 +7484,8 @@ CONFIG_PACKAGE_dbus=y
 # CONFIG_PACKAGE_digitemp is not set
 # CONFIG_PACKAGE_digitemp-usb is not set
 # CONFIG_PACKAGE_dmesg is not set
-# CONFIG_PACKAGE_docker is not set
-# CONFIG_PACKAGE_docker-compose is not set
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
 # CONFIG_PACKAGE_dockerd is not set
 # CONFIG_PACKAGE_domoticz is not set
 # CONFIG_PACKAGE_dos2unix is not set
