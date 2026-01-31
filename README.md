@@ -49,6 +49,8 @@ kmod-rtw88-8822cu和rtl8812cu通用
 需要其他插件自行通过config_small配置添加，注意同时开启对应依赖选项
 
 
+pics/tb_image_share_1767625501634.png
+
 ## Credits
 
 - [Microsoft Azure](https://azure.microsoft.com)
