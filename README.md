@@ -51,6 +51,9 @@ kmod-rtw88-8822cu和rtl8812cu通用
 
 ![RTL8812CU网卡](https://qqbot.ugcimg.cn/1106413613/28efddef1be940bee43f05f27758994db2be56c8/916b254e6bf0605a98dadfce2eb6e89b)
 
+![RTL8811CU网卡](https://raw.githubusercontent.com/xuxin1955/Actions-OpenWrt/main/pics/mmexport1769855276375.jpg)
+
+
 ## Credits
 
 - [Microsoft Azure](https://azure.microsoft.com)
