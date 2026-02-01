@@ -1,17 +1,19 @@
 name: Build_XG_040G_MD
 
-on: 
+on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: false
+        type: boolean
       log_switch:
         description: "编译日志开关"
         required: false
-        default: "false"
+        default: false
         type: boolean
-        options:
-          - true
-          - false
 
 env:
   CONFIG_FILE: 'config/040.config'
@@ -54,6 +56,19 @@ jobs:
       run: |
         sudo -E apt-get -y update
         sudo -E apt-get -y install $(curl -fsSL https://raw.githubusercontent.com/xuxin1955/depend_ubuntu2204_openwrt/refs/heads/main/depend_ubuntu2204_openwrt)
+        wget https://raw.githubusercontent.com/xuxin1955/depend_ubuntu2204_openwrt/main/mkbootimg_10.0.0+r36-9_all.deb
+        sudo dpkg -i mkbootimg_10.0.0+r36-9_all.deb
+        sudo apt-get install -f -y
+        # 验证安装
+        mkbootimg --help || true
+        MKBOOTIMG_PATH=$(which mkbootimg)
+        if [ -n "$MKBOOTIMG_PATH" ]; then
+        echo "mkbootimg found at: $MKBOOTIMG_PATH"
+        file "$MKBOOTIMG_PATH"
+        else
+        echo "❌ mkbootimg not found in PATH!"
+        fi
+        
         sudo timedatectl set-timezone "${TZ}"
         echo "status=success" >> ${GITHUB_OUTPUT}
         
@@ -106,10 +121,14 @@ jobs:
         cp -fv "${CONFIG_FILE}" openwrt/.config
         cd openwrt && make defconfig
         
+    - name: SSH connection to Actions
+      uses: csexton/debugger-action@master
+      if: ${{ inputs.ssh || contains(github.event.action, 'ssh') }}
+      
     - name: Download package
       working-directory: ./openwrt
       run: |
-        make download -j$(nproc) || { echo "Download failed"; exit 1; }
+        make download -j4 V=s
         find dl -size -1024c -delete
 
     - name: Compile the OpenWrt
@@ -172,6 +191,6 @@ jobs:
     - name: Delete workflow runs
       uses: LeeHe-gif/delete-workflow-runs@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 3
+        retain_days: 7
+        keep_minimum_runs: 5
         token: ${{ secrets.GITHUB_TOKEN }}
